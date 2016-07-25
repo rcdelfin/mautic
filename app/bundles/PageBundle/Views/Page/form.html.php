@@ -98,6 +98,13 @@ $template = $form['template']->vars['data'];
                 <?php echo $view['form']->row($form['metaDescription']); ?>
             </div>
 
+            <div class="row">
+                <div class="col-sm-12">
+                    <label>Upload custom content</label>
+                    <input type="file" id="htmlFile" name="htmlFile">
+                </div>
+            </div>            
+
             <div class="hide">
                 <?php echo $view['form']->rest($form); ?>
             </div>
