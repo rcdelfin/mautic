@@ -360,6 +360,10 @@ class PageController extends FormController
                 if ($valid = $this->isFormValid($form)) {
                     $content = $entity->getCustomHtml();
 
+                    if (isset($_FILES['htmlFile'])) {
+                        $content = trim(file_get_contents($_FILES['htmlFile']['tmp_name']));
+                    }
+
                     // Parse visual placeholders into tokens
                     BuilderTokenHelper::replaceVisualPlaceholdersWithTokens($content);
 
@@ -496,6 +500,10 @@ class PageController extends FormController
             if (!$cancelled = $this->isFormCancelled($form)) {
                 if ($valid = $this->isFormValid($form)) {
                     $content = $entity->getCustomHtml();
+
+                    if (isset($_FILES['htmlFile'])) {
+                        $content = trim(file_get_contents($_FILES['htmlFile']['tmp_name']));
+                    }
 
                     BuilderTokenHelper::replaceVisualPlaceholdersWithTokens($content);
 
